@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>      // Первое задание
+func chet(firstcount a: Int) -&gt; String{
+    var answear: String
+    (a % 2) == 0 ? ( answear = "Чётное") : (answear = "Нечётное")
+    return answear
+}
+
+print(chet(firstcount: 17))
+
+    //Второе задание
+
+func threeChet(firstcount a: Int) -&gt; String{
+    var answear: String
+    (a % 3) == 0 ? ( answear = "Делится") : (answear = "Не делится")
+    return answear
+}
+
+print(threeChet(firstcount: 18))
+      
+      
+    //Третье задание
+      
+var array: [Int] = []
+      for i in 1...100{
+        array.append(i)
+      }
+      print(array)
+
+      
+      
+      // Четвёртое задание
+      
+      let arrayLenght = array.count
+      print(arrayLenght)
+      var vspm: [Int] = []
+      
+      for i in array{
+        if i % 2 != 0 &amp;&amp; i % 3 == 0{
+            vspm.append(i)
+        }
+        
+      }
+      print(vspm)
+
+            
+      
+        //Пятое задание
+      
+      
+      func fibonachi(firstcount a : Int, seconCount b: Int) -&gt; Int {
+        return a + b
+      }
+      var fib: [Int] = [1, 1]
+      for i in 0...47{
+        fib.append(fibonachi(firstcount: fib[i], seconCount: fib[i + 1]))
+      }
+      print(fib)
+      print(fib.count)
+
+            
+      
+        //Шестое задание 
+      
+      func simpledigit(firstvalue a: Int) -&gt; Bool{
+        var count: Int
+        for i in stride(from: 2, to: Int(a / 2), by: 1){
+            if a % i == 0{
+                return false
+                break
+            }
+        }
+        return true
+      }
+      var simple: [Int] = []
+      var i = 2
+      while simple.count &lt; 100 {
+        if simpledigit(firstvalue: i){
+            simple.append(i)
+        }
+        i = i + 1
+      }
+      print(simple)
+      
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1690}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>

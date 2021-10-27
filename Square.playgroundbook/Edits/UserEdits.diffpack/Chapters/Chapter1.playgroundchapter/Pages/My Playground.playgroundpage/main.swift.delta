@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//x^2 - 5x + 6 = 0
+var a: Double = 1
+var b: Double = -7
+var c: Double = 12
+var discriminant: Double = ((b * b) - 4*a*c)
+let x1 = (-b - discriminant.squareRoot())/(2*a)
+let x2 = (-b + discriminant.squareRoot())/(2*a)
+print(x1,"and",  x2)
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 237}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
