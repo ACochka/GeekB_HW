@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+
+struct lightCar {
+    var mark: String
+    var yearOfRelease: String
+    var trunkVolume: Int // Объём багажника в литрах
+    var trankFreeVolume: Int
+    var engineStatus: Bool = false
+    var windowPosition: Bool = false
+    
+    mutating func engineSwitch(engineStatus: Bool){
+        self.engineStatus = engineStatus
+    }
+    mutating func windowSwitch(windowPosition: Bool){
+        self.windowPosition = windowPosition
+    }
+    mutating func changeVolume(inOut: String, delta: Int){
+        if inOut == "+"{
+            self.trankFreeVolume += delta
+        }else{
+            self.trankFreeVolume -= delta
+        }
+    }
+}
+
+
+
+
+//Инициализация двух легковых машин
+var supra: lightCar = lightCar(mark: "Tayota", yearOfRelease: "1990", trunkVolume: 15, trankFreeVolume: 10)
+var camry = lightCar(mark: "Tayota", yearOfRelease: "2010", trunkVolume: 20, trankFreeVolume: 15)
+print(supra)
+print(camry)
+print("__________________________________________")
+
+//Какая из машин раньше выпущена
+if Int(supra.yearOfRelease)! &gt; Int(camry.yearOfRelease)!{
+    print("\(supra.mark) supra younger than \(camry.mark) camry for \(Int(supra.yearOfRelease)! - Int(camry.yearOfRelease)!) years")
+}else if Int(supra.yearOfRelease)! &lt; Int(camry.yearOfRelease)!{
+    print("\(supra.mark) supra older than \(camry.mark) camry for \(Int(camry.yearOfRelease)! - Int(supra.yearOfRelease)!) years")
+}else{
+    print("They have odinary years old")
+}
+
+print("__________________________________________")
+
+//Запускание движка
+print(supra.engineStatus, "that engine is ON in supra")//Изначально движок выключен
+supra.engineSwitch(engineStatus: true)
+print(supra.engineStatus, "that engine is ON in supra")
+
+print("__________________________________________")
+
+//Фары
+print(camry.windowPosition, "that light is ON in camry")//Изначально фары выключены
+camry.windowSwitch(windowPosition: true)
+print(camry.windowPosition, "that light is ON in camry")
+
+print("__________________________________________")
+
+//Погрузить или выгрузить
+enum change {
+    case Add (volume : Int)
+    case Remove (volume : Int)
+}
+
+
+print(supra.trankFreeVolume, "litters Free volume in supra")//Начальный объём свободного места
+print(camry.trankFreeVolume, "litters Free volume in camry")
+
+var action = change.Add(volume: 4)
+var action2 = change.Remove(volume: 3)
+switch action {
+case .Add(let vol):
+    supra.changeVolume(inOut: "+", delta: vol) 
+    case .Remove(let vol):
+        supra.changeVolume(inOut: "-", delta: vol)     //supra
+default:
+    break 
+}
+
+switch action2 {
+case .Add(let vol):
+    camry.changeVolume(inOut: "+", delta: vol)        //camry
+case .Remove(let vol):
+    camry.changeVolume(inOut: "-", delta: vol)
+default:
+    break 
+}
+
+
+print(supra.trankFreeVolume, "litters Free volume in supra now")
+print(camry.trankFreeVolume, "litters Free volume in camry now")//Свободное место после погружения/выгружения
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 2878}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
