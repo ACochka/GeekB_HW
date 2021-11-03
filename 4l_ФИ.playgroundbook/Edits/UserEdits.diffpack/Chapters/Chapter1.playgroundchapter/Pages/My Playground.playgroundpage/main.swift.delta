@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+class Car{
+    let mark: String
+    let yearOfRelease: String
+    let trunkVolume: Int // Объём багажника в литрах
+    var trunkFreeVolume: Int
+    var engineStatus: engineSwitch
+    var windowPosition: windowSwitch
+    
+    
+    
+    
+    enum engineSwitch{   // Состояние двигателя
+        case On
+        case Off
+    }
+    
+    enum windowSwitch{  //Состояние стёкол
+        case Up
+        case Down
+    }
+    
+    
+    
+    
+    init(_ mark: String, _ yearOfRelease : String, _ trunkVolume: Int, _ trankFreeVolume: Int, _ engineStatus: engineSwitch, _ windowPosition: windowSwitch){
+        self.mark = mark
+        self.yearOfRelease = yearOfRelease
+        self.trunkVolume = trunkVolume
+        self.trunkFreeVolume = trankFreeVolume
+        self.engineStatus = engineStatus
+        self.windowPosition = windowPosition
+    }
+    
+    
+    
+    func info(){        // Информация об автомобиле
+        print("***********INFO***********")
+        print("The mark is \(mark)")
+        print("This car released in \(yearOfRelease)")
+        print("Trunk volume \(trunkVolume) liters")
+        print("Freee trunk volume \(trunkFreeVolume) liters")
+        
+        switch engineStatus {
+        case .On:
+            print("The engine is on")
+        case .Off:
+            print("The engine is off")
+        }
+        
+        switch windowPosition {
+        case .Up:
+            print("The windows are up")
+        case .Down:
+            print("The windows are down")
+        }
+        print("**************************")
+    }
+}
+
+
+class sportCar: Car{          //Наследованный класса Car
+    enum spolerTypes{
+        case Low
+        case High
+    }
+    enum carSuspensionTypes{
+        case Pro
+        case Standart
+    }
+    
+    
+    var spoiler: spolerTypes          //Дополнительные свойства наследованного класса
+    var carSuspens: carSuspensionTypes
+    
+    init(_ mark: String, _ yearOfRelease : String, _ trunkVolume: Int, _ trankFreeVolume: Int, _ engineStatus: engineSwitch, _ windowPosition: windowSwitch, _ spoiler: spolerTypes, _ carSuspens: carSuspensionTypes){
+        self.spoiler = spoiler
+        self.carSuspens = carSuspens
+        super.init(mark, yearOfRelease, trunkVolume, trankFreeVolume, engineStatus, windowPosition)
+        
+    }
+    
+    override func info() {                              //Переопределение метода наследованного класса
+        print("***********INFO***********")
+        print("The mark is \(mark)")
+        print("This car released in \(yearOfRelease)")
+        print("Trunk volume \(trunkVolume) liters")
+        print("Freee trunk volume \(trunkFreeVolume) liters")
+        
+        switch engineStatus {
+        case .On:
+            print("The engine is on")
+        case .Off:
+            print("The engine is off")
+        }
+        
+        switch windowPosition {
+        case .Up:
+            print("The windows are up")
+        case .Down:
+            print("The windows are down")
+        }
+        print("A \(carSuspens) suspension is installed on this car")
+        print("A \(spoiler) spoiler is installed on this car")
+        print("**************************")
+        
+    }
+        
+}
+
+class trunkCar: Car{                   //Наследованный класс 2
+    enum extraSpaceAvilability{
+        case Is
+        case Isnt
+    }
+    
+    
+    var extraSpace: extraSpaceAvilability    
+    
+    
+    init(_ mark: String, _ yearOfRelease : String, _ trunkVolume: Int, _ trankFreeVolume: Int, _ engineStatus: engineSwitch, _ windowPosition: windowSwitch, _ extraSpace: extraSpaceAvilability ){
+        self.extraSpace = extraSpace
+        super.init(mark, yearOfRelease, trunkVolume, trankFreeVolume, engineStatus, windowPosition)
+        
+    }
+    
+    override func info() {
+        print("***********INFO***********")
+        print("The mark is \(mark)")
+        print("This car released in \(yearOfRelease)")
+        print("Trunk volume \(trunkVolume) liters")
+        print("Freee trunk volume \(trunkFreeVolume) liters")
+        
+        switch engineStatus {
+        case .On:
+            print("The engine is on")
+        case .Off:
+            print("The engine is off")
+        }
+        
+        switch windowPosition {
+        case .Up:
+            print("The windows are up")
+        case .Down:
+            print("The windows are down")
+        }
+        print("There \(extraSpace) extra place in this car")
+        print("**************************")
+        
+    }
+    
+}
+
+var tayota: Car = Car("Supra", "1990", 25, 15, .Off, .Up) //объект главного класса
+tayota.info()
+var lamborgini: sportCar = sportCar("Aventodor", "2004", 30, 10, .On, .Up, .High, .Pro) // объект наследованного класса 1
+lamborgini.info()
+var honda: trunkCar = trunkCar("Pilot", "2008", 100, 90, .On, .Down, .Is)
+honda.info() // объект наследованного класса 2
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 4820}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
