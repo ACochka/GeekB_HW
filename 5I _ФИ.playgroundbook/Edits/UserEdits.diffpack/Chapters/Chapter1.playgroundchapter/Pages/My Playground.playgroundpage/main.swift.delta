@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+
+protocol Car: AnyObject{
+    var fabric : String {get}
+    var mark: String { get }
+    var yearOfRelease: String {get}
+    var trunkVolume: Int {get}
+    var trunkFreeVolume: Int {get set}
+    var engineStatus: engineSwitch {get set}
+    var windowPosition: windowSwitch {get set}
+}
+    
+extension Car{
+    func Engine(){
+        switch engineStatus {
+        case .On:
+            self.engineStatus = .Off
+        case .Off:
+            self.engineStatus = .On
+        }
+        
+    }
+    func Window(){
+        switch windowPosition {
+        case .Up:
+            self.windowPosition = .Down
+        case .Down:
+            self.windowPosition = .Up
+        }
+    }
+}
+    
+    
+    enum engineSwitch{   // Состояние двигателя
+        case On
+        case Off
+    }
+    
+    enum windowSwitch{  //Состояние стёкол
+        case Up
+        case Down
+    }
+    
+protocol Trunk: Car{
+    var extraSpace: Bool {get}
+}
+
+protocol Sport:  Car{
+    var maxSpeed: Int {get set}
+}
+
+
+
+class sportCar: Sport{
+    var engineStatus: engineSwitch
+
+    var maxSpeed: Int
+
+    var fabric: String
+    var mark: String
+    var yearOfRelease: String
+    var trunkVolume: Int
+    var trunkFreeVolume: Int
+    var windowPosition: windowSwitch
+    
+    init( _ fabric: String, _ mark: String, _ yearOfRelease : String, _ trunkVolume: Int, _ trankFreeVolume: Int, _ engineStatus: engineSwitch, _ windowPosition: windowSwitch){
+        self.fabric = fabric
+        self.mark = mark
+        self.yearOfRelease = yearOfRelease
+        self.trunkVolume = trunkVolume
+        self.engineStatus = engineStatus
+        self.windowPosition = windowPosition
+        self.trunkFreeVolume = trankFreeVolume
+        self.maxSpeed = 500
+    }
+}
+    
+    
+
+
+class trunkCar: Trunk{
+    
+    
+    var fabric: String
+    var mark: String
+    var yearOfRelease: String
+    var trunkVolume: Int
+    var trunkFreeVolume: Int
+    var engineStatus: engineSwitch
+    var windowPosition: windowSwitch
+    var extraSpace: Bool
+    
+    init( _ fabric: String, _ mark: String, _ yearOfRelease : String, _ trunkVolume: Int, _ trankFreeVolume: Int, _ engineStatus: engineSwitch, _ windowPosition: windowSwitch, extra extaSpace: Bool){
+        self.fabric = fabric
+        self.mark = mark
+        self.yearOfRelease = yearOfRelease
+        self.trunkVolume = trunkVolume
+        self.engineStatus = engineStatus
+        self.windowPosition = windowPosition
+        self.trunkFreeVolume = trankFreeVolume
+        self.extraSpace = extaSpace
+    }
+}
+    
+    extension Sport {   //CustomStringConvertible выдаёт ошибку
+        var description: String {
+            return "***********INFO***********\n" +
+            "The mark is \(mark)\n" +
+            "This car released in \(yearOfRelease)\n" +
+            "Trunk volume \(trunkVolume) liters\n" +
+                "Freee trunk volume \(trunkFreeVolume) liters\n" +
+                "Engine is \(engineStatus)\n" +
+                "Windows are \(windowPosition)\n" +
+            "Maximum speed \(maxSpeed)"
+        }
+    }
+
+
+
+extension Trunk{  
+    var description: String {
+        return "***********INFO***********\n" +
+            "The mark is \(mark)\n" +
+            "This car released in \(yearOfRelease)\n" +
+            "Trunk volume \(trunkVolume) liters\n" +
+            "Freee trunk volume \(trunkFreeVolume) liters\n" +
+            "Engine is \(engineStatus)\n" +
+            "Windows are \(windowPosition)\n" +
+            "Extra space avilability: \(extraSpace)"
+    }
+}
+
+
+var car1: sportCar = sportCar("Lamborgini", "Aventodor", "2003", 10, 8, .On, .Up)
+print(car1.description)
+car1.Engine()
+print(car1.description)
+
+var car2: trunkCar = trunkCar("Honda", "Pilot", "2006", 100, 90, .Off, .Up, extra: true)
+car2.Window()
+print(car2.description)
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 3763}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
