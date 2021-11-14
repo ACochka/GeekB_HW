@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+
+struct queue&lt;Elem: Equatable&gt;{
+    var array = [Elem]()
+    
+    
+    mutating func push(_ item: Elem){
+        array.append(item)
+    }
+    
+    mutating func remoove(){
+        array.remove(at: 0)
+    }
+    
+    
+    subscript(index: Int) -&gt; Elem? {
+        guard index &lt; array.count, index &gt;= 0 else { return nil }
+        return array[index]
+    }
+    
+    
+    func filter() -&gt; [Elem]{
+        var items = [Elem]()
+        for item in array{
+            if ((item as! Int % 2) != 0){
+                items.append(item)
+            }
+        }
+        return items
+    }
+    
+}
+
+
+
+var arrayInt = queue&lt;Int&gt;()
+for i in 1...10{
+    arrayInt.push(i)
+}
+print(arrayInt)
+
+print(arrayInt[1])
+print(arrayInt[12])
+
+
+print(arrayInt.filter())
+
+
+var arrayString = queue&lt;String&gt;()
+arrayString.push("ONE")
+print(arrayString)
+
+
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 820}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
