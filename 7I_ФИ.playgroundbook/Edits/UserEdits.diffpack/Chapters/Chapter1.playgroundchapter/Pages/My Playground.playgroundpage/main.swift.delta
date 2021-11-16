@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>enum carErrors: Error{         //Список ошибок
+    case lowLevelOfPetrol
+    case checkEngine
+    case unlockDoors
+}
+
+enum doorPosition{      //Позиции дверей в авто
+    case Lock
+    case Unlock
+}
+
+class car{
+    var levelOfPetrol: Int
+    var engineCondition: Bool
+    var doors: doorPosition
+    
+    init(levelOfPetrol: Int, engineCondition: Bool, doors: doorPosition){
+        self.levelOfPetrol = levelOfPetrol
+        self.engineCondition = engineCondition
+        self.doors = doors
+    }
+    
+    
+    
+    func readiness() throws {     //функция выброса ошибок
+        let min = 5
+        guard levelOfPetrol &gt; min else{
+            throw carErrors.lowLevelOfPetrol
+        }
+        guard engineCondition == true else{
+            throw carErrors.checkEngine
+        }
+        guard doors == .Lock else{
+            throw carErrors.unlockDoors
+        }
+        print("Ok")
+    }
+}
+
+var car1 = car(levelOfPetrol: 6, engineCondition: true, doors: .Unlock)//первый экземпляр
+
+
+var car2 = car(levelOfPetrol: 3, engineCondition: true, doors: .Lock)//второй экземпляр
+
+
+do{
+    try car1.readiness()
+}catch carErrors.lowLevelOfPetrol{
+    print("There is no enough Petrol in car")
+}catch carErrors.checkEngine{
+    print("Please, check yor engine")
+}catch carErrors.unlockDoors{
+    print("Please, lock  door in car1")
+}
+
+
+
+
+do{
+    try car2.readiness()
+}catch carErrors.lowLevelOfPetrol{
+    print("There is no enough Petrol in car2")
+}catch carErrors.checkEngine{
+    print("Please, check yor engine")
+}catch carErrors.unlockDoors{
+    print("Please, lock  door")
+}
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1574}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
